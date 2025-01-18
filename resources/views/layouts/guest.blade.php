@@ -14,20 +14,24 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased bg-white">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-cover bg-center" style="background-image: url('https://content.elmueble.com/medio/2023/11/09/lobero-irlandes_8f8766df_231109143259_1994x1325.jpg');">
-            <!-- Filtro oscuro para el fondo -->
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            
-            <div class="relative z-10">
-                <a href="/">
-                   Iniciar Sesión
-                </a>
-            </div>
-
-            <div class="relative z-10 w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg border border-gray-200">
+    <body class="font-sans text-gray-900 antialiased">
+        <!-- Fondo con imagen temática -->
+        <div class="min-h-screen flex flex-col sm:justify-center items-center bg-cover bg-center" style="background-image: url('/imagenes/fondo.jpg');">
+            <!-- Tarjeta de contenido -->
+            <div class="w-full sm:max-w-md mt-6 px-6 py-8 bg-white/90 backdrop-blur-md shadow-lg rounded-lg">
+                <!-- Título opcional -->
+                <h2 class="text-center text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-6">Bienvenidos</h2>
+                
+                <!-- Contenido dinámico -->
                 {{ $slot }}
+
+                <!-- Pie de página en la tarjeta -->
+                <p class="text-center text-sm text-gray-500 mt-4">
+                    ¿No tienes cuenta? 
+                    <a href="{{ route('register') }}" class="text-indigo-600 hover:text-indigo-700 font-medium">Regístrate aquí</a>.
+                </p>
             </div>
         </div>
     </body>
 </html>
+
